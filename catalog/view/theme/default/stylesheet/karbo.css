@@ -1,0 +1,59 @@
+.karbo_style p {
+                margin-top: 0px;
+                margin-bottom: 0px;
+               }
+
+.karbo_style_qr {
+                 display: block;
+                 width: 200px;
+                 height: 200px;
+                 overflow: hidden;
+                 float: left;
+                }
+
+.karbo_style_ds {
+                 display: block;
+                 margin-top: 20px;
+                 float: left;
+                 text-align: left; 
+                } 
+
+.karbo_style_ds span:first-child {
+                                  display: block;
+                                  color: #000;
+                                  font-weight: bold;
+                                 }
+
+.karbo_style_ds span:first-child a {
+                                    color: #000;
+                                    font-weight: bold;
+                                    text-decoration: underline;
+                                   }
+
+.karbo_style_ds span:first-child a:hover {
+                                          color: #000;
+                                          font-weight: bold;
+                                          text-decoration: none;
+                                         }
+
+.karbo_style_ds span:nth-child(2) {
+                                   display: block;
+                                   color: #000;
+                                   font-weight: bold;
+                                  }
+
+.karbo_style_ds span:nth-child(3) {
+                                   display: block;
+                                   margin-top: 10px;
+                                   margin-left: 10px;
+                                   font-size: large;
+                                   color: #555;
+                                   font-weight: bold;
+                                  }
+
+.clear_both {
+             width: 100%;
+             height: 1px;
+             overflow: hidden;
+             clear: both;
+            }
