@@ -90,10 +90,11 @@ class ControllerCheckoutKarbo extends Controller {
       $this->data['karbo_link'] .= '&payment_id=' . $this->data['karbo_payment_id'];
       $this->data['karbo_link'] .= '&label=' . $this->data['text_store_name'];
 
+      $karbo_qr_data  = 'karbowanec:' . $this->data['karbo_address'];
+      $karbo_qr_data .= '?amount=' . $this->data['text_total'];
+      $karbo_qr_data .= '&payment_id=' . $this->data['karbo_payment_id'];
       $this->data['karbo_qr_link']  = 'https://chart.googleapis.com/chart?cht=qr';
-      $this->data['karbo_qr_link'] .= '&chl=wallet_' . $this->data['karbo_address'];
-      $this->data['karbo_qr_link'] .= '.id_' . $this->data['karbo_payment_id'];
-      $this->data['karbo_qr_link'] .= '.amount_' . $this->data['text_total'];
+      $this->data['karbo_qr_link'] .= '&chl=' . urlencode($karbo_qr_data);
       $this->data['karbo_qr_link'] .= '&chs=200x200&choe=UTF=8&chld=L';
     }
 
