@@ -21,10 +21,10 @@
           <? echo $karbo_text_address; ?>: <a href="<?php echo $karbo_link; ?>"><?php echo $karbo_address; ?></a>
         </span>
         <span>
-          <? echo $karbo_text_payment_id; ?>: <?php echo $karbo_payment_id; ?>
+          <? echo $karbo_text_payment_id; ?>: <span id="karbo_payment_id"><?php echo $karbo_payment_id; ?></span>
         </span>
         <span>
-          <? echo $text_amount; ?>: <?php echo $text_total_ext; ?> &#1180;
+          <? echo $text_amount; ?>: <?php echo $text_total_ext; ?> &#1180; <span id="payment_status" style="display: none">&nbsp;</span>
         </span>
       </div>
       <div class="clear_both">&nbsp;</div>

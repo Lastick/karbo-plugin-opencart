@@ -62,6 +62,10 @@
               </td>
             </tr>
             <tr>
+              <td><?php echo $karbo_text_wallet_tx_conf; ?>:</td>
+              <td><input type="text" name="karbo_wallet_tx_conf" value="<?php echo $karbo_wallet_tx_conf; ?>" size="1" /></td>
+            </tr>
+            <tr>
               <td><?php echo $karbo_text_order_status; ?>:</td>
               <td><select name="karbo_order_status_id">
                   <?php foreach ($karbo_order_statuses as $order_status) { ?>

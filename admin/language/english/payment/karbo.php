@@ -15,6 +15,7 @@ $_['wallet_type_gateway']		= 'Payment gateway';
 $_['wallet_host']			= 'Host';
 $_['wallet_port']			= 'Port';
 $_['wallet_ssl']			= 'SSL';
+$_['wallet_tx_conf']			= 'Number of confirmations';
 $_['karbo_yes']				= 'Yes';
 $_['karbo_no']				= 'No';
 $_['karbo_enable']			= 'Enable';

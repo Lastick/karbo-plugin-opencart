@@ -42,6 +42,12 @@
                                    font-weight: bold;
                                   }
 
+.karbo_style_ds span:nth-child(2) span {
+                                        display: inline;
+                                        color: #000;
+                                        font-weight: bold;
+                                       }
+
 .karbo_style_ds span:nth-child(3) {
                                    display: block;
                                    margin-top: 10px;
@@ -50,6 +56,13 @@
                                    color: #555;
                                    font-weight: bold;
                                   }
+
+.karbo_style_ds span:nth-child(3) span {
+                                        display: none; /* inline; */
+                                        font-size: large;
+                                        color: #555;
+                                        font-weight: bold;
+                                       }
 
 .clear_both {
              width: 100%;

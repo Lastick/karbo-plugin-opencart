@@ -26,6 +26,7 @@ class ControllerPaymentKarbo extends Controller {
     $this->data['wallet_host'] = $this->language->get('wallet_host');
     $this->data['wallet_port'] = $this->language->get('wallet_port');
     $this->data['wallet_ssl'] = $this->language->get('wallet_ssl');
+    $this->data['karbo_text_wallet_tx_conf'] = $this->language->get('wallet_tx_conf');
     $this->data['karbo_text_yes'] = $this->language->get('karbo_yes');
     $this->data['karbo_text_no'] = $this->language->get('karbo_no');
     $this->data['karbo_text_enable'] = $this->language->get('karbo_enable');
@@ -69,6 +70,7 @@ class ControllerPaymentKarbo extends Controller {
     $this->data['karbo_wallet_host'] = $this->config->get('karbo_wallet_host');
     $this->data['karbo_wallet_port'] = $this->config->get('karbo_wallet_port');
     $this->data['karbo_wallet_ssl'] = $this->config->get('karbo_wallet_ssl');
+    $this->data['karbo_wallet_tx_conf'] = $this->config->get('karbo_wallet_tx_conf');
     $this->data['karbo_order_status_id'] = $this->config->get('karbo_order_status_id');
     $this->data['karbo_order_payment_status_id'] = $this->config->get('karbo_order_payment_status_id');
     $this->data['karbo_geo_zone_id'] = $this->config->get('karbo_geo_zone_id');
@@ -93,10 +95,11 @@ class ControllerPaymentKarbo extends Controller {
     $this->load->model('payment/karbo');
     $this->load->model('setting/setting');
     $settings['karbo_wallet_address']		= '';
-    $settings['karbo_wallet_type']		= '0';
-    $settings['karbo_wallet_host']		= '127.0.0.1';
-    $settings['karbo_wallet_port']		= '15000';
+    $settings['karbo_wallet_type']		= '2';
+    $settings['karbo_wallet_host']		= '52.59.232.98';
+    $settings['karbo_wallet_port']		= '8888';
     $settings['karbo_wallet_ssl']		= '0';
+    $settings['karbo_wallet_tx_conf']		= '6';
     $settings['karbo_order_status_id']		= '1';
     $settings['karbo_order_payment_status_id']	= '2';
     $settings['karbo_geo_zone_id']		= '0';
