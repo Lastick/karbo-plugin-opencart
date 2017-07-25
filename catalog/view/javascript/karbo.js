@@ -32,7 +32,7 @@ function KarboUpdateInit(){
       }
     });
   }
-  setTimeout(KarboUpdateInit, 5000);
+  setTimeout(KarboUpdateInit, 120000);
 }
 
 $(document).ready(function(){
