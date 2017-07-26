@@ -39,6 +39,34 @@ class ControllerPaymentKarbo extends Controller {
     $this->model_checkout_order->confirm($this->session->data['order_id'], $this->config->get('karbo_order_status_id'), $comment, true);
   }
 
+  public function api(){
+    $this->load->library('karbo');
+    $this->language->load('checkout/karbo');
+    $karbo = new Karbo($this->config->get('karbo_wallet_address'),
+                       $this->config->get('karbo_wallet_host'),
+                       $this->config->get('karbo_wallet_port'),
+                       $this->config->get('karbo_wallet_ssl'),
+                       $this->config->get('karbo_wallet_type'));
+    $karbo->setTxConf($this->config->get('karbo_wallet_tx_conf'));
+    $status = array();
+    $payment = array();
+    if (isset($this->request->get['karbo_payment_id']) and isset($this->session->data['karbo_payment_id'])){
+      if ($this->request->get['karbo_payment_id'] == $this->session->data['karbo_payment_id']){
+        $status = $karbo->getStatus();
+        if ($status['status']){
+          $payment = $karbo->getStatusPayment($this->session->data['karbo_payment_id']);
+          $args['status'] = true;
+          $args['tx_conf'] = $this->config->get('karbo_wallet_tx_conf');
+          $args['lang']['text_payment_wait'] = $this->language->get('text_payment_wait');
+          $args['lang']['text_payment_unconf'] = $this->language->get('text_payment_unconf');
+          $args['lang']['text_payment_conf'] = $this->language->get('text_payment_conf');
+          $args['payment']['tx_conf'] = $payment['tx_conf'];
+          echo json_encode($args);
+        }
+      }
+    }
+  }
+
   public function cron(){
     $this->load->model('payment/karbo');
     if ($this->config->get('karbo_status')){

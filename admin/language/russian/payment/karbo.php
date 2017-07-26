@@ -15,6 +15,7 @@ $_['wallet_type_gateway']		= 'Платежный шлюз';
 $_['wallet_host']			= 'Хост';
 $_['wallet_port']			= 'Порт';
 $_['wallet_ssl']			= 'SSL';
+$_['wallet_tx_conf']			= 'Количество подтверждений';
 $_['karbo_yes']				= 'Да';
 $_['karbo_no']				= 'Нет';
 $_['karbo_enable']			= 'Включено';

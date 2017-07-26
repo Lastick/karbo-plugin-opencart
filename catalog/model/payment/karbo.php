@@ -60,9 +60,13 @@ class ModelPaymentKarbo extends Model {
   public function KarboConfirmPayment(){
     $this->load->library('karbo');
     $this->load->model('checkout/order');
-    $karbo = new Karbo($this->config->get('karbo_wallet_host'),
+    $this->language->load('payment/karbo');
+    $karbo = new Karbo($this->config->get('karbo_wallet_address'),
+                       $this->config->get('karbo_wallet_host'),
                        $this->config->get('karbo_wallet_port'),
-                       $this->config->get('karbo_wallet_ssl'));
+                       $this->config->get('karbo_wallet_ssl'),
+                       $this->config->get('karbo_wallet_type'));
+    $karbo->setTxConf($this->config->get('karbo_wallet_tx_conf'));
 
     $query = NULL;
     $sql_q = "";
@@ -77,7 +81,6 @@ class ModelPaymentKarbo extends Model {
       foreach ($query as $result){
         if (isset($result['order_id'])){
           $order_id = $result['order_id'];
-          usleep(50000);
           $payment_id = $this->getKarboPaymentId($order_id);
           if ($payment_id != ''){
             $payinfo = $karbo->getStatusPayment($payment_id);
@@ -86,7 +89,9 @@ class ModelPaymentKarbo extends Model {
               if ($payinfo['status']){
                 $order_info = $this->model_checkout_order->getOrder($order_id);
                 if ($payinfo['amount'] >= $order_info['total']){
-                  $this->model_checkout_order->update($order_id, $this->config->get('karbo_order_payment_status_id'));
+                  $comm = '';
+                  $comm = $this->language->get('text_payment') . $order_id;
+                  $this->model_checkout_order->update($order_id, $this->config->get('karbo_order_payment_status_id'), $comm, true);
                   $data[$r_n]['order_id'] = $order_id;
                   $data[$r_n]['order_id'] = $payment_id;
                   $logger->write('Payment confirm: order - ' . $order_id . ', payment_id - ' . $payment_id);
