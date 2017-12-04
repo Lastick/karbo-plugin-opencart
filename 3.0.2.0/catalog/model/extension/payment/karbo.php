@@ -71,7 +71,7 @@ class ModelExtensionPaymentKarbo extends Model {
     $query = NULL;
     $sql_q = "";
     $sql_q  = "SELECT `order_id` FROM `" . DB_PREFIX . "order`";
-    $sql_q .= " WHERE `payment_code` = 'payment_karbo' AND";
+    $sql_q .= " WHERE `payment_code` = 'karbo' AND";
     $sql_q .= " `order_status_id` = " . (int)$this->config->get('payment_karbo_order_status_id');
     $query = $this->db->query($sql_q)->rows;
     $data = array();
