@@ -302,7 +302,7 @@ class Karbo {
     $args = array();
     $args['jsonrpc'] = self::RPC_V;
     $args['id'] = $this->id_connection;
-    $args['method'] = 'getbalance';
+    $args['method'] = 'get_balance';
     $result = array();
     $result['available_balance'] = 0;
     $result['locked_amount'] = 0;
