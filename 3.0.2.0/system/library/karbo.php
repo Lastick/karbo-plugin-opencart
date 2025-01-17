@@ -77,6 +77,7 @@ class Karbo {
       $url = 'http://';
     }
     $url .= $this->service_host . ':' . $this->service_port . '/json_rpc';
+    //print_r($req);
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8'));
@@ -259,7 +260,7 @@ class Karbo {
     $result = array();
     $data = $this->apiCall($args);
     $result['status'] = false;
-    print_r($data);
+    //print_r($data);
     if (!$data === false){
       if (isset($data['id'])){
         if ($data['id'] == $this->id_connection){
