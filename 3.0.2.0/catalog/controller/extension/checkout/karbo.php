@@ -79,7 +79,7 @@ class ControllerExtensionCheckoutKarbo extends Controller {
     $karbo_qr_data .= '&payment_id=' . $data['karbo_payment_id'];
     $data['karbo_qr_link']  = 'https://chart.googleapis.com/chart?cht=qr';
     $data['karbo_qr_link'] .= '&chl=' . urlencode($karbo_qr_data);
-    $data['karbo_qr_link'] .= '&chs=200x200&choe=UTF=8&chld=L';
+    $data['karbo_qr_link'] .= '&chs=201x201&choe=UTF=8&chld=L';
 
     if ($order_trig){
       if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/stylesheet/karbo.css')){

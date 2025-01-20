@@ -96,7 +96,7 @@ class ControllerCheckoutKarbo extends Controller {
     $karbo_qr_data .= '&payment_id=' . $this->data['karbo_payment_id'];
     $this->data['karbo_qr_link']  = 'https://chart.googleapis.com/chart?cht=qr';
     $this->data['karbo_qr_link'] .= '&chl=' . urlencode($karbo_qr_data);
-    $this->data['karbo_qr_link'] .= '&chs=200x200&choe=UTF=8&chld=L';
+    $this->data['karbo_qr_link'] .= '&chs=201x201&choe=UTF=8&chld=L';
 
     if ($order_trig){
       unset ($this->session->data['karbo_wallet_address']);
